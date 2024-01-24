@@ -8,7 +8,7 @@ const ColorGuardado = ({codigoColorProps, borrarColorProps}) => {
           <Card.Title>Color</Card.Title>
           <Card.Text>{codigoColorProps}</Card.Text>
           <Button variant="primary">Buscar color</Button>
-          <Button variant="danger" className="mt-2" onClick={()=> borrarColorProps(codigoColor)}>Desechar del bolso</Button>
+          <Button variant="danger" className="mt-2" onClick={()=> borrarColorProps(codigoColorProps)}>Desechar del bolso</Button>
         </Card.Body>
       </Card>
     </div>
