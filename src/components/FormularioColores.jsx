@@ -31,8 +31,8 @@ const FormularioColores = () => {
         <div>
           <img
             className="img-fluid imgFormulario"
-            src="../../img/mochila.png"
-            alt="mochila colorida"
+            src="../../img/colores.jpg"
+            alt="aaaa"
           />
         </div>
         <Form className="formularioColores px-5" onSubmit={handleSubmit}>
