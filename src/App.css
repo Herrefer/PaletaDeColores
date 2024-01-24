@@ -1,8 +1,18 @@
-.imgFormulario{
+.imgFormulario {
   width: 400px;
   height: 300px;
-  border-radius: 15px;
 }
-.formularioColores{
+.formularioColores {
   width: 100%;
+}
+.formularioPrincipal {
+  border-radius: 15px;
+  background: rgb(149, 229, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(149, 229, 255, 1) 0%,
+    rgba(192, 235, 153, 1) 39%,
+    rgba(255, 244, 1, 1) 67%,
+    rgba(255, 132, 250, 1) 100%
+  );
 }

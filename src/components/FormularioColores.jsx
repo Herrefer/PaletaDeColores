@@ -4,7 +4,8 @@ import ListaColores from "./ListaColores";
 
 const FormularioColores = () => {
   const [codigoColor, setCodigoColor] = useState("");
-  const coloresLocalStorage = JSON.parse(localStorage.getItem("keyColores")) || []
+  const coloresLocalStorage =
+    JSON.parse(localStorage.getItem("keyColores")) || [];
   const [coloresAgregados, setColoresAgregados] = useState(coloresLocalStorage);
   useEffect(() => {
     localStorage.setItem("keyColores", JSON.stringify(coloresAgregados));
@@ -26,11 +27,11 @@ const FormularioColores = () => {
 
   return (
     <>
-      <section className="d-flex align-items-center mb-5">
+      <section className="d-flex align-items-center mb-5 formularioPrincipal">
         <div>
           <img
             className="img-fluid imgFormulario"
-            src="../../img/colores.jpg"
+            src="../../img/mochila.png"
             alt="varios colores"
           />
         </div>
@@ -45,6 +46,9 @@ const FormularioColores = () => {
               onChange={(e) => setCodigoColor(e.target.value)}
               value={codigoColor}
             />
+            <Form.Text className="text-muted">
+              Recordá anteponer "#" al código que introduzcas
+            </Form.Text>
           </Form.Group>
           <Button variant="primary" type="submit">
             ✨Guardar en el bolso✨
