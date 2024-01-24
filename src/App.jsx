@@ -10,7 +10,6 @@ function App() {
       <Container className="text-center my-3">
         <h1>Bolso mágico de colores</h1>
         <FormularioColores></FormularioColores>
-        <ListaColores></ListaColores>
       </Container>
     </>
   );
