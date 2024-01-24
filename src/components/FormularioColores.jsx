@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
 const FormularioColores = () => {
+
+  const [codigoColor, setCodigoColor] = useState ('')
+
   return (
     <section className="d-flex align-items-center mb-5">
       <div>
@@ -14,6 +18,8 @@ const FormularioColores = () => {
             placeholder="Por ej: #edc56b"
             minLength={7}
             maxLength={7}
+            onChange={(e)=> setCodigoColor(e.target.value)}
+            value={codigoColor}
           />
         </Form.Group>
         <Button variant="primary" type="submit">
