@@ -1,12 +1,19 @@
 import ColorGuardado from "./ColorGuardado";
 
-const ListaColores = ({coloresAgregadosProps, borrarColorProps}) => {
+const ListaColores = ({ coloresAgregadosProps, borrarColorProps }) => {
   return (
-    <div className="d-flex flex-row justify-content-between flex-wrap">
-        {
-            coloresAgregadosProps.map((elemento, posicionElemento)=> <ColorGuardado key={posicionElemento} codigoColorProps={elemento} borrarColorProps={borrarColorProps}></ColorGuardado>)
-        }
-    </div>
+    <>
+    <h2 className="text-center">Colores guardados en tu bolso 🎒🎨 </h2>
+      <div className="d-flex flex-row justify-content-between flex-wrap">
+        {coloresAgregadosProps.map((elemento, posicionElemento) => (
+          <ColorGuardado
+            key={posicionElemento}
+            codigoColorProps={elemento}
+            borrarColorProps={borrarColorProps}
+          ></ColorGuardado>
+        ))}
+      </div>
+    </>
   );
 };
 
