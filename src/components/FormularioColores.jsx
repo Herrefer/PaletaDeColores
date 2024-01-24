@@ -13,6 +13,13 @@ const FormularioColores = () => {
     console.log("todo va correcto!");
   }
 
+  function borrarColor(color) {
+    const coloresFiltrados = coloresAgregados.filter(
+      (elemento) => elemento !== color
+    );
+    setColoresAgregados(coloresFiltrados);
+  }
+
   return (
     <>
       <section className="d-flex align-items-center mb-5">
@@ -40,7 +47,10 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores coloresAgregadosProps={coloresAgregados}></ListaColores>
+      <ListaColores
+        coloresAgregadosProps={coloresAgregados}
+        borrarColorProps={borrarColor}
+      ></ListaColores>
     </>
   );
 };
