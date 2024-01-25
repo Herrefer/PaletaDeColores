@@ -1,8 +1,22 @@
-# React + Vite
+# ⚛ Trabajo Practico React + Vite ⚛
+## Punto 6
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+El trabajo practico en general consiste en resolver ejercicios, de simples a complejos, basados en React y Vite, asi tambien como en el manejo de conceptos como componente, ciclo de vida de componente, local storage, estado, eventos, etc.
 
-Currently, two official plugins are available:
+El punto 6 de este trabajo consiste en crear una página en la cual se puedan guardar y eliminar colores. Además debe funcionar correctamente el local storage
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Herramientas utilizadas 🛠           
+- React                                 
+- Vite                                  
+- React + Bootstrap                     
+
+### Lenguajes utilizados 💭
+- HTML
+- JavaScript
+- CSS
+
+### Participantes 👨‍💼
+- Herrera Victor Fernando
+
+### Para probar el proyecto
+solo deben dirigirse al siguiente link :  https://tpreactpunto6.netlify.app/
