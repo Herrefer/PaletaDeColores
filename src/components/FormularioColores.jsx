@@ -1,29 +1,15 @@
-import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import ListaColores from "./ListaColores";
-
+import { useForm } from "react-hook-form";
 const FormularioColores = () => {
-  const [codigoColor, setCodigoColor] = useState("");
-  const coloresLocalStorage =
-    JSON.parse(localStorage.getItem("keyColores")) || [];
-  const [coloresAgregados, setColoresAgregados] = useState(coloresLocalStorage);
-  useEffect(() => {
-    localStorage.setItem("keyColores", JSON.stringify(coloresAgregados));
-  }, [coloresAgregados]);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setColoresAgregados([...coloresAgregados, codigoColor]);
-    setCodigoColor("");
-    console.log("todo va correcto!");
-  }
-
-  function borrarColor(color) {
-    const coloresFiltrados = coloresAgregados.filter(
-      (elemento) => elemento !== color
-    );
-    setColoresAgregados(coloresFiltrados);
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const colorValidado = (color) => {
+    console.log(color);
+  };
 
   return (
     <>
@@ -35,19 +21,49 @@ const FormularioColores = () => {
             alt="varios colores"
           />
         </div>
-        <Form className="formularioColores px-5" onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form
+          className="formularioColores px-5"
+          onSubmit={handleSubmit(colorValidado)}
+        >
+          <Form.Group className="mb-3" controlId="formBasicColor">
             <Form.Label>Introduzca un color por código hexadecimal</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Por ej: #edc56b"
-              minLength={7}
-              maxLength={7}
-              onChange={(e) => setCodigoColor(e.target.value)}
-              value={codigoColor}
+              placeholder="Introduzca el nombre del color"
+              {...register('nombreColor', {
+                required: "El nombre del color es obligatorio",
+                minLength: {
+                  value: 3,
+                  message: "El mínimo de carácteres debe ser 3"
+                },
+                maxLength: {
+                  value: 30,
+                  message: "El máximo de carácteres debe ser 30"
+                }
+              })}
             />
             <Form.Text className="text-muted">
-              Recordá anteponer "#" al código que introduzcas
+              {errors.nombreColor?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCodigo">
+            <Form.Control
+              type="text"
+              placeholder="Introduzca el codigo hexadecimal del color"
+              {...register('codigoColor', {
+                required: "el código del color es obligatorio",
+                minLength: {
+                  value: 7,
+                  message: "El mínimo de carácteres debe ser 7"
+                },
+                maxLength: {
+                  value: 7,
+                  message: "El máximo de carácteres debe ser de 7"
+                }
+              })}
+            />
+            <Form.Text className="text-muted">
+              {errors.codigoColor?.message}
             </Form.Text>
           </Form.Group>
           <Button variant="primary" type="submit">
@@ -56,8 +72,6 @@ const FormularioColores = () => {
         </Form>
       </section>
       <ListaColores
-        coloresAgregadosProps={coloresAgregados}
-        borrarColorProps={borrarColor}
       ></ListaColores>
     </>
   );
