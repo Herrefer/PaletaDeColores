@@ -1,14 +1,18 @@
 import { Button, Form } from "react-bootstrap";
 import ListaColores from "./ListaColores";
 import { useForm } from "react-hook-form";
+import { crearColor } from "../helpers/queries";
 const FormularioColores = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const colorValidado = (color) => {
+  const colorValidado = async (color) => {
     console.log(color);
+    crearColor(color);
+    reset();
   };
 
   return (
@@ -30,16 +34,16 @@ const FormularioColores = () => {
             <Form.Control
               type="text"
               placeholder="Introduzca el nombre del color"
-              {...register('nombreColor', {
+              {...register("nombreColor", {
                 required: "El nombre del color es obligatorio",
                 minLength: {
                   value: 3,
-                  message: "El mínimo de carácteres debe ser 3"
+                  message: "El mínimo de carácteres debe ser 3",
                 },
                 maxLength: {
                   value: 30,
-                  message: "El máximo de carácteres debe ser 30"
-                }
+                  message: "El máximo de carácteres debe ser 30",
+                },
               })}
             />
             <Form.Text className="text-muted">
@@ -50,16 +54,16 @@ const FormularioColores = () => {
             <Form.Control
               type="text"
               placeholder="Introduzca el codigo hexadecimal del color"
-              {...register('codigoColor', {
+              {...register("codigoColor", {
                 required: "el código del color es obligatorio",
                 minLength: {
                   value: 7,
-                  message: "El mínimo de carácteres debe ser 7"
+                  message: "El mínimo de carácteres debe ser 7",
                 },
                 maxLength: {
                   value: 7,
-                  message: "El máximo de carácteres debe ser de 7"
-                }
+                  message: "El máximo de carácteres debe ser de 7",
+                },
               })}
             />
             <Form.Text className="text-muted">
@@ -71,8 +75,7 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores
-      ></ListaColores>
+      <ListaColores></ListaColores>
     </>
   );
 };
