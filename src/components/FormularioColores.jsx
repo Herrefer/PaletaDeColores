@@ -1,14 +1,34 @@
 import { Button, Form } from "react-bootstrap";
 import ListaColores from "./ListaColores";
 import { useForm } from "react-hook-form";
-import { crearColor } from "../helpers/queries";
+import { crearColor, leerColores } from "../helpers/queries";
+import { useEffect, useState } from "react";
 const FormularioColores = () => {
+  
+  const [colores, setColores] = useState([])
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
+    reset,
   } = useForm();
+  
+  useEffect(()=>{
+    consultarBD()
+  }, [])
+
+  const consultarBD = async () => {
+    try{
+      const respuesta = await leerColores();
+      setColores(respuesta);
+    }catch(error){
+      alert(error);
+    }
+  }
+
+ 
+
   const colorValidado = async (color) => {
     console.log(color);
     crearColor(color);
@@ -75,7 +95,7 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores></ListaColores>
+      <ListaColores colores ={colores} setColores={setColores}></ListaColores>
     </>
   );
 };

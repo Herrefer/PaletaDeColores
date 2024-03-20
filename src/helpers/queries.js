@@ -21,6 +21,32 @@ export const crearColor = async (colorNuevo) => {
     });
     return respuesta;
   } catch (error) {
-    alert(error);
+    console.log(error);
+  }
+};
+
+export const borrarColorSolicitud = async (id) => {
+  try {
+    const respuesta = await fetch(`${urlColores}/${id}`, {
+      method: "DELETE",
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const editarColor = async (objetoModificado, id) => {
+  try {
+    const respuesta = await fetch(`${urlColores}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(objetoModificado),
+    });
+    return respuesta;
+  } catch (error) {
+    console.log(error);
   }
 };
