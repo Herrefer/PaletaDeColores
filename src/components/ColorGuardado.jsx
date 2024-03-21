@@ -14,12 +14,12 @@ const ColorGuardado = ({ objetoColor, setColores }) => {
 
   return (
     <div className="my-3">
-      <Card style={{ width: "18rem", background: objetoColor.codigoColor }}>
+      <Card style={{ width: "18rem", backgroundColor: "#edb007"}}>
         <Card.Body>
-          <Card.Title>{objetoColor.nombreColor}</Card.Title>
-          <Card.Text>{objetoColor.codigoColor}</Card.Text>
+          <Card.Title>nombre del color</Card.Title>
+          <Card.Text>codigo del color</Card.Text>
           <Button variant="primary">Buscar color</Button>
-          <Button variant="danger" className="mt-2" onClick={borrarColor}>
+          <Button variant="danger" className="mt-2">
             Desechar del bolso
           </Button>
         </Card.Body>
