@@ -1,5 +1,5 @@
 import { Button, Card, FloatingLabel, Form, Modal } from "react-bootstrap";
-import { borrarColor, leerColores } from "../helpers/queries";
+import { borrarColor, editarColor, leerColores } from "../helpers/queries";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -26,6 +26,9 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
 
   const colorValidado = async (colorEditado) => {
     console.log(colorEditado);
+    editarColor(colorEditado, color.id);
+    consultarBD();
+    handleClose();
   };
   return (
     <div className="my-3">

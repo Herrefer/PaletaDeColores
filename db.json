@@ -1,14 +1,24 @@
 {
   "colores": [
     {
-      "id": "0761",
-      "nombreColor": "Cyan",
-      "codigoColor": "#00e5ff"
+      "nombreColor": "Blanco",
+      "codigoColor": "#ffffff",
+      "id": "0761"
     },
     {
       "id": "33c5",
       "nombreColor": "Amarillo",
       "codigoColor": "#eaff00"
+    },
+    {
+      "id": "1e8c",
+      "nombreColor": "Nuevo color cualquiera ",
+      "codigoColor": "1234567"
+    },
+    {
+      "nombreColor": "Morado",
+      "codigoColor": "#a002bf",
+      "id": "a189"
     }
   ]
 }
