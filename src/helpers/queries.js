@@ -22,13 +22,14 @@ export const crearColor = async (colorNuevo) => {
       },
       body: JSON.stringify(colorNuevo),
     });
+    console.log(respuesta.json());
     return respuesta;
   } catch (error) {
     console.log(error);
   }
 };
 
-export const borrarColorSolicitud = async (id) => {
+export const borrarColor = async (id) => {
   try {
     const respuesta = await fetch(`${urlColores}/${id}`, {
       method: "DELETE",

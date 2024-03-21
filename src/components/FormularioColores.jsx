@@ -30,6 +30,8 @@ const FormularioColores = () => {
   const colorValidado = async (color) => {
     console.log(color);
     crearColor(color);
+    setColores([...colores, color]);
+    consultarBD();
     reset();
   };
 
@@ -93,7 +95,7 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores colores={colores} setColores={setColores}></ListaColores>
+      <ListaColores colores={colores} setColores={setColores} consultarBD={consultarBD}></ListaColores>
     </>
   );
 };
