@@ -6,19 +6,29 @@
       "id": "0761"
     },
     {
-      "id": "33c5",
-      "nombreColor": "Amarillo",
-      "codigoColor": "#eaff00"
+      "nombreColor": "Crema 2",
+      "codigoColor": "#fee0ff",
+      "id": "33c5"
     },
     {
-      "id": "1e8c",
-      "nombreColor": "Nuevo color cualquiera ",
-      "codigoColor": "1234567"
+      "nombreColor": "Crema ",
+      "codigoColor": "#fee0ff",
+      "id": "1e8c"
     },
     {
-      "nombreColor": "Morado",
-      "codigoColor": "#a002bf",
+      "nombreColor": "blanco 2",
+      "codigoColor": "#ffffff",
       "id": "a189"
+    },
+    {
+      "nombreColor": "Verde claro",
+      "codigoColor": "#00d604",
+      "id": "37d9"
+    },
+    {
+      "nombreColor": "Celeste",
+      "codigoColor": "#33beff",
+      "id": "fe68"
     }
   ]
 }
