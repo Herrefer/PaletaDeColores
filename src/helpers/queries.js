@@ -1,12 +1,15 @@
 const urlColores = import.meta.env.VITE_API_COLORES;
 
 export const leerColores = async () => {
+    console.log(urlColores)
   try {
     const respuesta = await fetch(urlColores);
+    console.log(respuesta)
     const listaTareas = await respuesta.json();
+    console.log(listaTareas);
     return listaTareas;
   } catch (error) {
-    alert(error);
+    console.log(error);
   }
 };
 

@@ -1,0 +1,19 @@
+{
+  "colores": [
+    {
+      "id": "1",
+      "nombreColor": "celeste",
+      "codigoColor": "1111111"
+    },
+    {
+        "id": "2",
+        "nombreColor": "morado",
+        "codigoColor": "1111111"
+    },
+    {
+        "id": "3",
+        "nombreColor": "blanco",
+        "codigoColor": "1111111"
+    }
+  ]
+}

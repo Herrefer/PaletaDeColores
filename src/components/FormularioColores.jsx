@@ -3,9 +3,9 @@ import ListaColores from "./ListaColores";
 import { useForm } from "react-hook-form";
 import { crearColor, leerColores } from "../helpers/queries";
 import { useEffect, useState } from "react";
+
 const FormularioColores = () => {
-  
-  const [colores, setColores] = useState([])
+  const [colores, setColores] = useState([]);
 
   const {
     register,
@@ -13,21 +13,19 @@ const FormularioColores = () => {
     formState: { errors },
     reset,
   } = useForm();
-  
-  useEffect(()=>{
-    consultarBD()
-  }, [])
+
+  useEffect(() => {
+    consultarBD();
+  }, []);
 
   const consultarBD = async () => {
-    try{
+    try {
       const respuesta = await leerColores();
       setColores(respuesta);
-    }catch(error){
+    } catch (error) {
       alert(error);
     }
-  }
-
- 
+  };
 
   const colorValidado = async (color) => {
     console.log(color);
@@ -95,7 +93,7 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores colores ={colores} setColores={setColores}></ListaColores>
+      <ListaColores colores={colores} setColores={setColores}></ListaColores>
     </>
   );
 };
