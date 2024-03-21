@@ -1,34 +1,29 @@
 {
   "colores": [
     {
+      "id": "21b2",
+      "nombreColor": "Azul claro",
+      "codigoColor": "#3d81ff"
+    },
+    {
+      "id": "3358",
       "nombreColor": "Blanco",
-      "codigoColor": "#ffffff",
-      "id": "0761"
+      "codigoColor": "#ffffff"
     },
     {
-      "nombreColor": "Crema 2",
-      "codigoColor": "#fee0ff",
-      "id": "33c5"
+      "id": "1b9b",
+      "nombreColor": "Negro",
+      "codigoColor": "#000000"
     },
     {
-      "nombreColor": "Crema ",
-      "codigoColor": "#fee0ff",
-      "id": "1e8c"
+      "id": "df24",
+      "nombreColor": "Rojo",
+      "codigoColor": "#ff0000"
     },
     {
-      "nombreColor": "blanco 2",
-      "codigoColor": "#ffffff",
-      "id": "a189"
-    },
-    {
-      "nombreColor": "Verde claro",
-      "codigoColor": "#00d604",
-      "id": "37d9"
-    },
-    {
-      "nombreColor": "Celeste",
-      "codigoColor": "#33beff",
-      "id": "fe68"
+      "nombreColor": "Cyan",
+      "codigoColor": "#00ffff",
+      "id": "0546"
     }
   ]
 }

@@ -26,8 +26,8 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
 
   const colorValidado = async (colorEditado) => {
     console.log(colorEditado);
-    editarColor(colorEditado, color.id);
-    consultarBD();
+    await editarColor(colorEditado, color.id);
+    await consultarBD();
     handleClose();
   };
   return (
@@ -80,8 +80,7 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
               </Form.Text>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCodigo">
-              <FloatingLabel
-              label= "Código">
+              <FloatingLabel label="Código">
                 <Form.Control
                   type="text"
                   placeholder="Introduzca el codigo hexadecimal del color"
@@ -96,6 +95,11 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
                       message: "El código del color debe tener 7 caracteres",
                     },
                     value: `${color.codigoColor}`,
+                    pattern: {
+                      value: /^#[0-9A-Fa-f]{6}$/,
+                      message:
+                        "El código debe llevar un # al inicio y 6 dígitos que coincidan con un hexadecimal",
+                    },
                   })}
                 />
               </FloatingLabel>
