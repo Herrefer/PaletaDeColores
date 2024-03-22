@@ -30,8 +30,8 @@ const FormularioColores = () => {
   const colorValidado = async (color) => {
     console.log(color);
     await crearColor(color);
-    await consultarBD();
     setColores([...colores, color]);
+    await consultarBD();
     reset();
   };
 
@@ -50,7 +50,7 @@ const FormularioColores = () => {
           onSubmit={handleSubmit(colorValidado)}
         >
           <Form.Group className="mb-3" controlId="formBasicColor">
-            <Form.Label>Introduzca los datos del color que desea guardar</Form.Label>
+            <Form.Label>Complete los datos para guardar su color</Form.Label>
             <Form.Control
               type="text"
               placeholder="Introduzca el nombre del color"
@@ -58,11 +58,11 @@ const FormularioColores = () => {
                 required: "El nombre del color es obligatorio",
                 minLength: {
                   value: 3,
-                  message: "El nombre debe tener entre 3 y 30 caracteres",
+                  message: "El mínimo de carácteres debe ser 3",
                 },
                 maxLength: {
                   value: 30,
-                  message: "El nombre debe tener entre 3 y 30 caracteres",
+                  message: "El máximo de carácteres debe ser 30",
                 },
               })}
             />
@@ -78,16 +78,12 @@ const FormularioColores = () => {
                 required: "el código del color es obligatorio",
                 minLength: {
                   value: 7,
-                  message: "El código del color debe tener 7 caracteres",
+                  message: "El mínimo de carácteres debe ser 7",
                 },
                 maxLength: {
                   value: 7,
-                  message: "El código del color debe tener 7 caracteres",
+                  message: "El máximo de carácteres debe ser de 7",
                 },
-                pattern: {
-                  value: /^#[0-9A-Fa-f]{6}$/,
-                  message: "El código debe llevar un # al inicio y 6 dígitos que coincidan con un hexadecimal"
-                }
               })}
             />
             <Form.Text className="text-muted">
