@@ -1,4 +1,5 @@
 const urlColores = import.meta.env.VITE_API_COLORES;
+const urlColor = import.meta.env.VITE_API_COLOR;
 
 export const leerColores = async () => {
     console.log(urlColores)
@@ -31,7 +32,7 @@ export const crearColor = async (colorNuevo) => {
 
 export const borrarColor = async (id) => {
   try {
-    const respuesta = await fetch(`${urlColores}/${id}`, {
+    const respuesta = await fetch(`${urlColor}/${id}`, {
       method: "DELETE",
     });
     return respuesta;
@@ -42,7 +43,7 @@ export const borrarColor = async (id) => {
 
 export const editarColor = async (objetoModificado, id) => {
   try {
-    const respuesta = await fetch(`${urlColores}/${id}`, {
+    const respuesta = await fetch(`${urlColor}/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
