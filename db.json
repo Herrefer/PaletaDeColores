@@ -1,0 +1,24 @@
+{
+  "colores": [
+    {
+      "nombreColor": "Cyan",
+      "codigoColor": "#00ffff",
+      "id": "9d41"
+    },
+    {
+      "id": "beb4",
+      "nombreColor": "Negro",
+      "codigoColor": "#000000"
+    },
+    {
+      "id": "3466",
+      "nombreColor": "Blanco",
+      "codigoColor": "#ffffff"
+    },
+    {
+      "id": "4995",
+      "nombreColor": "Rojo",
+      "codigoColor": "#ff0000"
+    }
+  ]
+}

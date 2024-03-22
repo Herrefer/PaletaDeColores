@@ -1,29 +1,39 @@
-import { useState, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import ListaColores from "./ListaColores";
+import { useForm } from "react-hook-form";
+import { crearColor, leerColores } from "../helpers/queries";
+import { useEffect, useState } from "react";
 
 const FormularioColores = () => {
-  const [codigoColor, setCodigoColor] = useState("");
-  const coloresLocalStorage =
-    JSON.parse(localStorage.getItem("keyColores")) || [];
-  const [coloresAgregados, setColoresAgregados] = useState(coloresLocalStorage);
+  const [colores, setColores] = useState([]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
+
   useEffect(() => {
-    localStorage.setItem("keyColores", JSON.stringify(coloresAgregados));
-  }, [coloresAgregados]);
+    consultarBD();
+  }, []);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setColoresAgregados([...coloresAgregados, codigoColor]);
-    setCodigoColor("");
-    console.log("todo va correcto!");
-  }
+  const consultarBD = async () => {
+    try {
+      const respuesta = await leerColores();
+      setColores(respuesta);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
-  function borrarColor(color) {
-    const coloresFiltrados = coloresAgregados.filter(
-      (elemento) => elemento !== color
-    );
-    setColoresAgregados(coloresFiltrados);
-  }
+  const colorValidado = async (color) => {
+    console.log(color);
+    await crearColor(color);
+    setColores([...colores, color]);
+    await consultarBD();
+    reset();
+  };
 
   return (
     <>
@@ -34,19 +44,49 @@ const FormularioColores = () => {
             src="/mochila.png"
             />
         </div>
-        <Form className="formularioColores px-5" onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Introduzca un color por código hexadecimal</Form.Label>
+        <Form
+          className="formularioColores px-5"
+          onSubmit={handleSubmit(colorValidado)}
+        >
+          <Form.Group className="mb-3" controlId="formBasicColor">
+            <Form.Label>Complete los datos para guardar su color</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Por ej: #edc56b"
-              minLength={7}
-              maxLength={7}
-              onChange={(e) => setCodigoColor(e.target.value)}
-              value={codigoColor}
+              placeholder="Introduzca el nombre del color"
+              {...register("nombreColor", {
+                required: "El nombre del color es obligatorio",
+                minLength: {
+                  value: 3,
+                  message: "El mínimo de carácteres debe ser 3",
+                },
+                maxLength: {
+                  value: 30,
+                  message: "El máximo de carácteres debe ser 30",
+                },
+              })}
             />
             <Form.Text className="text-muted">
-              Recordá anteponer "#" al código que introduzcas
+              {errors.nombreColor?.message}
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCodigo">
+            <Form.Control
+              type="text"
+              placeholder="Introduzca el codigo hexadecimal del color"
+              {...register("codigoColor", {
+                required: "el código del color es obligatorio",
+                minLength: {
+                  value: 7,
+                  message: "El mínimo de carácteres debe ser 7",
+                },
+                maxLength: {
+                  value: 7,
+                  message: "El máximo de carácteres debe ser de 7",
+                },
+              })}
+            />
+            <Form.Text className="text-muted">
+              {errors.codigoColor?.message}
             </Form.Text>
           </Form.Group>
           <Button variant="primary" type="submit">
@@ -54,10 +94,7 @@ const FormularioColores = () => {
           </Button>
         </Form>
       </section>
-      <ListaColores
-        coloresAgregadosProps={coloresAgregados}
-        borrarColorProps={borrarColor}
-      ></ListaColores>
+      <ListaColores colores={colores} setColores={setColores} consultarBD={consultarBD}></ListaColores>
     </>
   );
 };
