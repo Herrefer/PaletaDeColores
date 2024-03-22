@@ -1,24 +1,24 @@
 {
   "colores": [
     {
-      "id": "cd60",
-      "nombreColor": "Rojo",
-      "codigoColor": "#ff0000"
+      "nombreColor": "Cyan",
+      "codigoColor": "#00ffff",
+      "id": "9d41"
     },
     {
-      "id": "351b",
-      "nombreColor": "Blanco",
-      "codigoColor": "#ffffff"
-    },
-    {
-      "id": "c59f",
+      "id": "beb4",
       "nombreColor": "Negro",
       "codigoColor": "#000000"
     },
     {
-      "id": "00eb",
-      "nombreColor": "Cyan",
-      "codigoColor": "#00ffff"
+      "id": "3466",
+      "nombreColor": "Blanco",
+      "codigoColor": "#ffffff"
+    },
+    {
+      "id": "4995",
+      "nombreColor": "Rojo",
+      "codigoColor": "#ff0000"
     }
   ]
 }

@@ -17,7 +17,7 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
 
   const botonBorrarColor = async () => {
     try {
-      await borrarColor(color.id);
+      await borrarColor(color._id);
       await consultarBD();
     } catch (error) {
       console.log(error);
@@ -26,7 +26,7 @@ const ColorGuardado = ({ color, setColores, colores, consultarBD }) => {
 
   const colorValidado = async (colorEditado) => {
     console.log(colorEditado);
-    await editarColor(colorEditado, color.id);
+    await editarColor(colorEditado, color._id);
     await consultarBD();
     handleClose();
   };
